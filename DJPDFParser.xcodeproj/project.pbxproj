@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8216528A1777AA3800EDFF12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821652891777AA3800EDFF12 /* UIKit.framework */; };
+		8216528C1777AA3800EDFF12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8216528B1777AA3800EDFF12 /* Foundation.framework */; };
+		8216528E1777AA3800EDFF12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8216528D1777AA3800EDFF12 /* CoreGraphics.framework */; };
+		821652941777AA3800EDFF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 821652921777AA3800EDFF12 /* InfoPlist.strings */; };
+		821652961777AA3800EDFF12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652951777AA3800EDFF12 /* main.m */; };
+		8216529A1777AA3800EDFF12 /* DJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652991777AA3800EDFF12 /* DJAppDelegate.m */; };
+		8216529C1777AA3800EDFF12 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8216529B1777AA3800EDFF12 /* Default.png */; };
+		8216529E1777AA3800EDFF12 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8216529D1777AA3800EDFF12 /* Default@2x.png */; };
+		821652A01777AA3800EDFF12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8216529F1777AA3800EDFF12 /* Default-568h@2x.png */; };
+		821652A31777AA3800EDFF12 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821652A11777AA3800EDFF12 /* MainStoryboard.storyboard */; };
+		821652A61777AA3800EDFF12 /* DJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652A51777AA3800EDFF12 /* DJViewController.m */; };
+		821652AE1777AA3900EDFF12 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821652AD1777AA3900EDFF12 /* SenTestingKit.framework */; };
+		821652AF1777AA3900EDFF12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821652891777AA3800EDFF12 /* UIKit.framework */; };
+		821652B01777AA3900EDFF12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8216528B1777AA3800EDFF12 /* Foundation.framework */; };
+		821652B81777AA3900EDFF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 821652B61777AA3900EDFF12 /* InfoPlist.strings */; };
+		821652BB1777AA3900EDFF12 /* DJPDFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		821652B11777AA3900EDFF12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8216527E1777AA3800EDFF12 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 821652851777AA3800EDFF12;
+			remoteInfo = DJPDFParser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		821652861777AA3800EDFF12 /* DJPDFParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJPDFParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		821652891777AA3800EDFF12 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8216528B1777AA3800EDFF12 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8216528D1777AA3800EDFF12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		821652911777AA3800EDFF12 /* DJPDFParser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DJPDFParser-Info.plist"; sourceTree = "<group>"; };
+		821652931777AA3800EDFF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		821652951777AA3800EDFF12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		821652971777AA3800EDFF12 /* DJPDFParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJPDFParser-Prefix.pch"; sourceTree = "<group>"; };
+		821652981777AA3800EDFF12 /* DJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAppDelegate.h; sourceTree = "<group>"; };
+		821652991777AA3800EDFF12 /* DJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAppDelegate.m; sourceTree = "<group>"; };
+		8216529B1777AA3800EDFF12 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8216529D1777AA3800EDFF12 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8216529F1777AA3800EDFF12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		821652A21777AA3800EDFF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		821652A41777AA3800EDFF12 /* DJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJViewController.h; sourceTree = "<group>"; };
+		821652A51777AA3800EDFF12 /* DJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJViewController.m; sourceTree = "<group>"; };
+		821652AC1777AA3900EDFF12 /* DJPDFParserTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DJPDFParserTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		821652AD1777AA3900EDFF12 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		821652B51777AA3900EDFF12 /* DJPDFParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DJPDFParserTests-Info.plist"; sourceTree = "<group>"; };
+		821652B71777AA3900EDFF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		821652B91777AA3900EDFF12 /* DJPDFParserTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJPDFParserTests.h; sourceTree = "<group>"; };
+		821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJPDFParserTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		821652831777AA3800EDFF12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8216528A1777AA3800EDFF12 /* UIKit.framework in Frameworks */,
+				8216528C1777AA3800EDFF12 /* Foundation.framework in Frameworks */,
+				8216528E1777AA3800EDFF12 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821652A81777AA3800EDFF12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821652AE1777AA3900EDFF12 /* SenTestingKit.framework in Frameworks */,
+				821652AF1777AA3900EDFF12 /* UIKit.framework in Frameworks */,
+				821652B01777AA3900EDFF12 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8216527D1777AA3800EDFF12 = {
+			isa = PBXGroup;
+			children = (
+				8216528F1777AA3800EDFF12 /* DJPDFParser */,
+				821652B31777AA3900EDFF12 /* DJPDFParserTests */,
+				821652881777AA3800EDFF12 /* Frameworks */,
+				821652871777AA3800EDFF12 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		821652871777AA3800EDFF12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				821652861777AA3800EDFF12 /* DJPDFParser.app */,
+				821652AC1777AA3900EDFF12 /* DJPDFParserTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		821652881777AA3800EDFF12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				821652891777AA3800EDFF12 /* UIKit.framework */,
+				8216528B1777AA3800EDFF12 /* Foundation.framework */,
+				8216528D1777AA3800EDFF12 /* CoreGraphics.framework */,
+				821652AD1777AA3900EDFF12 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8216528F1777AA3800EDFF12 /* DJPDFParser */ = {
+			isa = PBXGroup;
+			children = (
+				821652981777AA3800EDFF12 /* DJAppDelegate.h */,
+				821652991777AA3800EDFF12 /* DJAppDelegate.m */,
+				821652A11777AA3800EDFF12 /* MainStoryboard.storyboard */,
+				821652A41777AA3800EDFF12 /* DJViewController.h */,
+				821652A51777AA3800EDFF12 /* DJViewController.m */,
+				821652901777AA3800EDFF12 /* Supporting Files */,
+			);
+			path = DJPDFParser;
+			sourceTree = "<group>";
+		};
+		821652901777AA3800EDFF12 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				821652911777AA3800EDFF12 /* DJPDFParser-Info.plist */,
+				821652921777AA3800EDFF12 /* InfoPlist.strings */,
+				821652951777AA3800EDFF12 /* main.m */,
+				821652971777AA3800EDFF12 /* DJPDFParser-Prefix.pch */,
+				8216529B1777AA3800EDFF12 /* Default.png */,
+				8216529D1777AA3800EDFF12 /* Default@2x.png */,
+				8216529F1777AA3800EDFF12 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		821652B31777AA3900EDFF12 /* DJPDFParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				821652B91777AA3900EDFF12 /* DJPDFParserTests.h */,
+				821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */,
+				821652B41777AA3900EDFF12 /* Supporting Files */,
+			);
+			path = DJPDFParserTests;
+			sourceTree = "<group>";
+		};
+		821652B41777AA3900EDFF12 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				821652B51777AA3900EDFF12 /* DJPDFParserTests-Info.plist */,
+				821652B61777AA3900EDFF12 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		821652851777AA3800EDFF12 /* DJPDFParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 821652BE1777AA3900EDFF12 /* Build configuration list for PBXNativeTarget "DJPDFParser" */;
+			buildPhases = (
+				821652821777AA3800EDFF12 /* Sources */,
+				821652831777AA3800EDFF12 /* Frameworks */,
+				821652841777AA3800EDFF12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DJPDFParser;
+			productName = DJPDFParser;
+			productReference = 821652861777AA3800EDFF12 /* DJPDFParser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		821652AB1777AA3800EDFF12 /* DJPDFParserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 821652C11777AA3900EDFF12 /* Build configuration list for PBXNativeTarget "DJPDFParserTests" */;
+			buildPhases = (
+				821652A71777AA3800EDFF12 /* Sources */,
+				821652A81777AA3800EDFF12 /* Frameworks */,
+				821652A91777AA3800EDFF12 /* Resources */,
+				821652AA1777AA3800EDFF12 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				821652B21777AA3900EDFF12 /* PBXTargetDependency */,
+			);
+			name = DJPDFParserTests;
+			productName = DJPDFParserTests;
+			productReference = 821652AC1777AA3900EDFF12 /* DJPDFParserTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8216527E1777AA3800EDFF12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DJ;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = DJMobileInc;
+			};
+			buildConfigurationList = 821652811777AA3800EDFF12 /* Build configuration list for PBXProject "DJPDFParser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8216527D1777AA3800EDFF12;
+			productRefGroup = 821652871777AA3800EDFF12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				821652851777AA3800EDFF12 /* DJPDFParser */,
+				821652AB1777AA3800EDFF12 /* DJPDFParserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		821652841777AA3800EDFF12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821652941777AA3800EDFF12 /* InfoPlist.strings in Resources */,
+				8216529C1777AA3800EDFF12 /* Default.png in Resources */,
+				8216529E1777AA3800EDFF12 /* Default@2x.png in Resources */,
+				821652A01777AA3800EDFF12 /* Default-568h@2x.png in Resources */,
+				821652A31777AA3800EDFF12 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821652A91777AA3800EDFF12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821652B81777AA3900EDFF12 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		821652AA1777AA3800EDFF12 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		821652821777AA3800EDFF12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821652961777AA3800EDFF12 /* main.m in Sources */,
+				8216529A1777AA3800EDFF12 /* DJAppDelegate.m in Sources */,
+				821652A61777AA3800EDFF12 /* DJViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821652A71777AA3800EDFF12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821652BB1777AA3900EDFF12 /* DJPDFParserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		821652B21777AA3900EDFF12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 821652851777AA3800EDFF12 /* DJPDFParser */;
+			targetProxy = 821652B11777AA3900EDFF12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		821652921777AA3800EDFF12 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				821652931777AA3800EDFF12 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		821652A11777AA3800EDFF12 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				821652A21777AA3800EDFF12 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		821652B61777AA3900EDFF12 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				821652B71777AA3900EDFF12 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		821652BC1777AA3900EDFF12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		821652BD1777AA3900EDFF12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		821652BF1777AA3900EDFF12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJPDFParser/DJPDFParser-Prefix.pch";
+				INFOPLIST_FILE = "DJPDFParser/DJPDFParser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		821652C01777AA3900EDFF12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJPDFParser/DJPDFParser-Prefix.pch";
+				INFOPLIST_FILE = "DJPDFParser/DJPDFParser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		821652C21777AA3900EDFF12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DJPDFParser.app/DJPDFParser";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJPDFParser/DJPDFParser-Prefix.pch";
+				INFOPLIST_FILE = "DJPDFParserTests/DJPDFParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		821652C31777AA3900EDFF12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DJPDFParser.app/DJPDFParser";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJPDFParser/DJPDFParser-Prefix.pch";
+				INFOPLIST_FILE = "DJPDFParserTests/DJPDFParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		821652811777AA3800EDFF12 /* Build configuration list for PBXProject "DJPDFParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				821652BC1777AA3900EDFF12 /* Debug */,
+				821652BD1777AA3900EDFF12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		821652BE1777AA3900EDFF12 /* Build configuration list for PBXNativeTarget "DJPDFParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				821652BF1777AA3900EDFF12 /* Debug */,
+				821652C01777AA3900EDFF12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		821652C11777AA3900EDFF12 /* Build configuration list for PBXNativeTarget "DJPDFParserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				821652C21777AA3900EDFF12 /* Debug */,
+				821652C31777AA3900EDFF12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8216527E1777AA3800EDFF12 /* Project object */;
+}
