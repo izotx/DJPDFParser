@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1D3E70178C613000F0616E /* PDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D3E6F178C613000F0616E /* PDFGenerator.m */; };
+		4F1D3E72178CB29100F0616E /* ios5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D3E71178CB29100F0616E /* ios5.pdf */; };
+		4F8F243A177A730800185CF7 /* PDFPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F2439177A730800185CF7 /* PDFPreview.m */; };
+		4F8F243B177A730800185CF7 /* PDFPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F2439177A730800185CF7 /* PDFPreview.m */; };
+		4F8F243E177A74CC00185CF7 /* Macro.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F243D177A74CC00185CF7 /* Macro.m */; };
+		4F8F243F177A74CC00185CF7 /* Macro.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F243D177A74CC00185CF7 /* Macro.m */; };
+		4FBE0C09177B524600F283B5 /* ios51.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBE0C08177B524600F283B5 /* ios51.pdf */; };
 		8216528A1777AA3800EDFF12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821652891777AA3800EDFF12 /* UIKit.framework */; };
 		8216528C1777AA3800EDFF12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8216528B1777AA3800EDFF12 /* Foundation.framework */; };
 		8216528E1777AA3800EDFF12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8216528D1777AA3800EDFF12 /* CoreGraphics.framework */; };
@@ -23,6 +30,7 @@
 		821652B01777AA3900EDFF12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8216528B1777AA3800EDFF12 /* Foundation.framework */; };
 		821652B81777AA3900EDFF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 821652B61777AA3900EDFF12 /* InfoPlist.strings */; };
 		821652BB1777AA3900EDFF12 /* DJPDFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */; };
+		821652C91777ABE800EDFF12 /* PDFParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652C81777ABE800EDFF12 /* PDFParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F1D3E6E178C612F00F0616E /* PDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFGenerator.h; sourceTree = "<group>"; };
+		4F1D3E6F178C613000F0616E /* PDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFGenerator.m; sourceTree = "<group>"; };
+		4F1D3E71178CB29100F0616E /* ios5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ios5.pdf; sourceTree = "<group>"; };
+		4F8F2438177A730800185CF7 /* PDFPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPreview.h; sourceTree = "<group>"; };
+		4F8F2439177A730800185CF7 /* PDFPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPreview.m; sourceTree = "<group>"; };
+		4F8F243C177A74CC00185CF7 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		4F8F243D177A74CC00185CF7 /* Macro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Macro.m; sourceTree = "<group>"; };
+		4FBE0C08177B524600F283B5 /* ios51.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ios51.pdf; sourceTree = "<group>"; };
 		821652861777AA3800EDFF12 /* DJPDFParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJPDFParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821652891777AA3800EDFF12 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8216528B1777AA3800EDFF12 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +74,9 @@
 		821652B71777AA3900EDFF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		821652B91777AA3900EDFF12 /* DJPDFParserTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJPDFParserTests.h; sourceTree = "<group>"; };
 		821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJPDFParserTests.m; sourceTree = "<group>"; };
+		821652C71777ABE800EDFF12 /* PDFParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFParser.h; sourceTree = "<group>"; };
+		821652C81777ABE800EDFF12 /* PDFParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFParser.m; sourceTree = "<group>"; };
+		82D4DCD91788DA54004780C3 /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +106,11 @@
 		8216527D1777AA3800EDFF12 = {
 			isa = PBXGroup;
 			children = (
+				821652C71777ABE800EDFF12 /* PDFParser.h */,
+				821652C81777ABE800EDFF12 /* PDFParser.m */,
+				82D4DCD91788DA54004780C3 /* File */,
+				4F8F243C177A74CC00185CF7 /* Macro.h */,
+				4F8F243D177A74CC00185CF7 /* Macro.m */,
 				8216528F1777AA3800EDFF12 /* DJPDFParser */,
 				821652B31777AA3900EDFF12 /* DJPDFParserTests */,
 				821652881777AA3800EDFF12 /* Frameworks */,
@@ -122,6 +146,10 @@
 				821652A11777AA3800EDFF12 /* MainStoryboard.storyboard */,
 				821652A41777AA3800EDFF12 /* DJViewController.h */,
 				821652A51777AA3800EDFF12 /* DJViewController.m */,
+				4F8F2438177A730800185CF7 /* PDFPreview.h */,
+				4F8F2439177A730800185CF7 /* PDFPreview.m */,
+				4F1D3E6E178C612F00F0616E /* PDFGenerator.h */,
+				4F1D3E6F178C613000F0616E /* PDFGenerator.m */,
 				821652901777AA3800EDFF12 /* Supporting Files */,
 			);
 			path = DJPDFParser;
@@ -130,6 +158,8 @@
 		821652901777AA3800EDFF12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4F1D3E71178CB29100F0616E /* ios5.pdf */,
+				4FBE0C08177B524600F283B5 /* ios51.pdf */,
 				821652911777AA3800EDFF12 /* DJPDFParser-Info.plist */,
 				821652921777AA3800EDFF12 /* InfoPlist.strings */,
 				821652951777AA3800EDFF12 /* main.m */,
@@ -237,6 +267,8 @@
 				8216529E1777AA3800EDFF12 /* Default@2x.png in Resources */,
 				821652A01777AA3800EDFF12 /* Default-568h@2x.png in Resources */,
 				821652A31777AA3800EDFF12 /* MainStoryboard.storyboard in Resources */,
+				4FBE0C09177B524600F283B5 /* ios51.pdf in Resources */,
+				4F1D3E72178CB29100F0616E /* ios5.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +306,10 @@
 				821652961777AA3800EDFF12 /* main.m in Sources */,
 				8216529A1777AA3800EDFF12 /* DJAppDelegate.m in Sources */,
 				821652A61777AA3800EDFF12 /* DJViewController.m in Sources */,
+				821652C91777ABE800EDFF12 /* PDFParser.m in Sources */,
+				4F8F243A177A730800185CF7 /* PDFPreview.m in Sources */,
+				4F8F243E177A74CC00185CF7 /* Macro.m in Sources */,
+				4F1D3E70178C613000F0616E /* PDFGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +318,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				821652BB1777AA3900EDFF12 /* DJPDFParserTests.m in Sources */,
+				4F8F243B177A730800185CF7 /* PDFPreview.m in Sources */,
+				4F8F243F177A74CC00185CF7 /* Macro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +423,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DJPDFParser/DJPDFParser-Prefix.pch";
 				INFOPLIST_FILE = "DJPDFParser/DJPDFParser-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -396,7 +436,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DJPDFParser/DJPDFParser-Prefix.pch";
 				INFOPLIST_FILE = "DJPDFParser/DJPDFParser-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -454,6 +496,7 @@
 				821652C01777AA3900EDFF12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		821652C11777AA3900EDFF12 /* Build configuration list for PBXNativeTarget "DJPDFParserTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +505,7 @@
 				821652C31777AA3900EDFF12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,16 @@
+Process
+Check which size is bigger
+
+if(x>y)
+ if fits in box, fine, no changes
+ 
+ else
+    x -> boxW
+    scale = oldX/boxW
+    ynew = y * scale
+
+else case if y>x
+    y = boxH
+    scale = oldY/boxH
+    xnew = oldX * scale;
+

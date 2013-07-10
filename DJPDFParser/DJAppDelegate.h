@@ -11,5 +11,5 @@
 @interface DJAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) NSURL *url;
 @end
