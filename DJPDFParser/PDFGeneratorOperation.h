@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 @class PDFParser;
 
-@interface PDFGenerator : NSOperation
+@interface PDFGeneratorOperation : NSOperation
 typedef void (^DJCompletionBlock)(UIImage *);
--(id)initWithPageNumber:(int)page andPDFParser:(PDFParser *)parser andCompletionBlock:(DJCompletionBlock)block;
+-(id)initWithPageNumber:(int)page andPDFParser:(PDFParser *)parser andName:(NSString *)folder andCompletionBlock:(DJCompletionBlock)block;
 
 @property int pageCounter;
 @property (strong, nonatomic) DJCompletionBlock djcompletionBlock;

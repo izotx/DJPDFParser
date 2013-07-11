@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F1D3E70178C613000F0616E /* PDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D3E6F178C613000F0616E /* PDFGenerator.m */; };
+		4F1ACB5C178DC1D800F171C1 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1ACB5B178DC1D800F171C1 /* DataSource.m */; };
+		4F1ACB5D178DC1D800F171C1 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1ACB5B178DC1D800F171C1 /* DataSource.m */; };
+		4F1D3E70178C613000F0616E /* PDFGeneratorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D3E6F178C613000F0616E /* PDFGeneratorOperation.m */; };
 		4F1D3E72178CB29100F0616E /* ios5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D3E71178CB29100F0616E /* ios5.pdf */; };
 		4F8F243A177A730800185CF7 /* PDFPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F2439177A730800185CF7 /* PDFPreview.m */; };
 		4F8F243B177A730800185CF7 /* PDFPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F2439177A730800185CF7 /* PDFPreview.m */; };
@@ -44,8 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F1D3E6E178C612F00F0616E /* PDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFGenerator.h; sourceTree = "<group>"; };
-		4F1D3E6F178C613000F0616E /* PDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFGenerator.m; sourceTree = "<group>"; };
+		4F1ACB5A178DC1D800F171C1 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		4F1ACB5B178DC1D800F171C1 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		4F1D3E6E178C612F00F0616E /* PDFGeneratorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFGeneratorOperation.h; sourceTree = "<group>"; };
+		4F1D3E6F178C613000F0616E /* PDFGeneratorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFGeneratorOperation.m; sourceTree = "<group>"; };
 		4F1D3E71178CB29100F0616E /* ios5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ios5.pdf; sourceTree = "<group>"; };
 		4F8F2438177A730800185CF7 /* PDFPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPreview.h; sourceTree = "<group>"; };
 		4F8F2439177A730800185CF7 /* PDFPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPreview.m; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 		8216528F1777AA3800EDFF12 /* DJPDFParser */ = {
 			isa = PBXGroup;
 			children = (
+				4F1ACB5A178DC1D800F171C1 /* DataSource.h */,
+				4F1ACB5B178DC1D800F171C1 /* DataSource.m */,
 				821652981777AA3800EDFF12 /* DJAppDelegate.h */,
 				821652991777AA3800EDFF12 /* DJAppDelegate.m */,
 				821652A11777AA3800EDFF12 /* MainStoryboard.storyboard */,
@@ -148,8 +154,8 @@
 				821652A51777AA3800EDFF12 /* DJViewController.m */,
 				4F8F2438177A730800185CF7 /* PDFPreview.h */,
 				4F8F2439177A730800185CF7 /* PDFPreview.m */,
-				4F1D3E6E178C612F00F0616E /* PDFGenerator.h */,
-				4F1D3E6F178C613000F0616E /* PDFGenerator.m */,
+				4F1D3E6E178C612F00F0616E /* PDFGeneratorOperation.h */,
+				4F1D3E6F178C613000F0616E /* PDFGeneratorOperation.m */,
 				821652901777AA3800EDFF12 /* Supporting Files */,
 			);
 			path = DJPDFParser;
@@ -309,7 +315,8 @@
 				821652C91777ABE800EDFF12 /* PDFParser.m in Sources */,
 				4F8F243A177A730800185CF7 /* PDFPreview.m in Sources */,
 				4F8F243E177A74CC00185CF7 /* Macro.m in Sources */,
-				4F1D3E70178C613000F0616E /* PDFGenerator.m in Sources */,
+				4F1D3E70178C613000F0616E /* PDFGeneratorOperation.m in Sources */,
+				4F1ACB5C178DC1D800F171C1 /* DataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +327,7 @@
 				821652BB1777AA3900EDFF12 /* DJPDFParserTests.m in Sources */,
 				4F8F243B177A730800185CF7 /* PDFPreview.m in Sources */,
 				4F8F243F177A74CC00185CF7 /* Macro.m in Sources */,
+				4F1ACB5D178DC1D800F171C1 /* DataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

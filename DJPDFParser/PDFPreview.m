@@ -9,7 +9,7 @@
 #import "PDFPreview.h"
 #import "PDFParser.h"
 #import "Macro.h"
-#import "PDFGenerator.h"
+#import "PDFGeneratorOperation.h"
 
 @interface PDFPreview()<UIGestureRecognizerDelegate>
 {
@@ -94,7 +94,7 @@ int pageNr;
         screenshots = [[NSMutableArray alloc]initWithCapacity:0];
        
         NSOperationQueue * queue = [[NSOperationQueue alloc]init];
-        queue.maxConcurrentOperationCount  = 8;
+        queue.maxConcurrentOperationCount  = 4;
         self.queue = queue;
         blockOperation = [[NSOperation alloc]init];
         pageCounter = 1;
@@ -103,67 +103,38 @@ int pageNr;
 }
 
 -(void)viewTapOn:(UITapGestureRecognizer *)_tap{
-    NSLog(@"Tap");
-    //[self setNeedsDisplay];
-//    __weak  PDFParser * weakParser = pdf;
-//    __weak int pageCount = pageCounter;
-//    [blockOperation addExecutionBlock:^{
-//        UIImage * im =   [weakParser imageForPage:pageCount];
-//        [weakParser saveImage:im withFileName: [NSString stringWithFormat:@"image%d",pageCount] ofType:@"jpg" inDirectory:DOCUMENT_FOLDER];
-//    }];
-//   
-//    for(int i =1; i<81;i++){
-//       if(
-//    
-//    }
-//    
+    //[self createThumbnails];
+ }
 
-//    
-//    [_queue addOperationWithBlock:^(){
-//        for(int i =1; i<81;i++){
-//            UIImage * im =   [pdf imageForPage:i];
-//            [pdf saveImage:im withFileName: [NSString stringWithFormat:@"image%d",i] ofType:@"jpg" inDirectory:DOCUMENT_FOLDER];
-//        }
-//        [[NSOperationQueue mainQueue] addOperationWithBlock: ^ {
-//
-//        }];
-//    }];
-    
-// 
-    
-    stephan_raabe@apple.com 
-  // NSMutableArray * operations = [[NSMutableArray alloc]initWithCapacity:0];
-    __weak NSMutableArray * weakScreenshots = screenshots;
-    for(int i =1; i<81;i++){
-         PDFGenerator * generator = [[PDFGenerator alloc]initWithPageNumber:i andPDFParser:pdf andCompletionBlock:^(UIImage * image)
-         {
-           // [weakScreenshots addObject:image];
-         }];
+-(void)createThumbnails{
+    __block int pageCount = pdf.getNumberOfPages;
+    __block float progress = 0.0;
+    for(int i =1; i<pdf.getNumberOfPages;i++){
+        PDFGeneratorOperation * generator = [[PDFGeneratorOperation alloc]initWithPageNumber:i andPDFParser:pdf andName:@"afef20"
+                                             
+                                                                          andCompletionBlock:^(UIImage * image)
+                                             {
+                                             }];
+        generator.completionBlock =^{
+            //decrease count of
+            
+            pageCount--;
+            progress = 100 * (pdf.getNumberOfPages - pageCount)/pdf.getNumberOfPages*1.0f;
+            NSLog(@"%.1f%%",progress);
+            
+        };
         [blockOperation addDependency:generator];
         [_queue addOperation:generator];
-     }
+    }
     [_queue addOperation: blockOperation];
     
     [blockOperation setCompletionBlock:^(){
-       // NSLog(@"Completed %@",weakScreenshots);
-    
+        NSLog(@"Completed ");
+        
     }];
-  
-    
-         //[blockOperation addDependency:[[operations addObject:[[PDFGenerator alloc]initWithPageNumber:i andPDFParser:pdf]];
-    
-////    [_queue addOperations:operations waitUntilFinished: NO];
-//    if(operations.count >0){
-//        NSLog(@"Dependencies: %@ %@",blockOperation.dependencies,[operations objectAtIndex:0]);
-//       // for(PDFGenerator * op in operations ){
-//         //   [_queue addOperation:op];
-//        //}
-//        
-//        [_queue addOperation:blockOperation];
-//    
-//    
-//    }
+
 }
+
 
 -(void)viewPanned:(UIPanGestureRecognizer *)_pan{
     NSLog(@"Pan Gesture");

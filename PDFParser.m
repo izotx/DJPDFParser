@@ -8,14 +8,21 @@
 
 #import "PDFParser.h"
 #import "Macro.h"
+#import "PDFGeneratorOperation.h"
+
 
 #define fillFactor 0.9
+#define ThumbSize 800
 @interface PDFParser(){
     CGPDFDocumentRef document;
     NSString * filePath;
-    
+    size_t count;
+    NSOperation * blockOperation;
 }
+
+@property(nonatomic, strong) NSOperationQueue *queue;
 @end
+
 @implementation PDFParser
 
 
@@ -24,6 +31,10 @@
     if(self){
         //document = [self MyGetPDFDocumentRef: filename];
         filePath = filename;
+        blockOperation = [[NSOperation alloc]init];
+        _queue = [[NSOperationQueue alloc]init];
+        _queue.maxConcurrentOperationCount = 4;
+        
     }
     return self;
 }
@@ -32,12 +43,9 @@
 //gets pdf document ref
 -(CGPDFDocumentRef) MyGetPDFDocumentRef: (NSString *) fileName;{
     CFStringRef path;
-    
     CFURLRef url;
-    size_t count;
-    
+
     const char *cfileName = [fileName cStringUsingEncoding:NSUTF8StringEncoding];
-    
     path = CFStringCreateWithCString (NULL, cfileName,
                                       
                                       kCFStringEncodingUTF8);
@@ -47,12 +55,10 @@
                                          kCFURLPOSIXPathStyle, 0);
     
     CFRelease (path);
-    
-    document = CGPDFDocumentCreateWithURL (url);// 2
-    
+    CGPDFDocumentRef  _document = CGPDFDocumentCreateWithURL (url);// 2
     CFRelease(url);
     
-    count = CGPDFDocumentGetNumberOfPages (document);// 3
+    count = CGPDFDocumentGetNumberOfPages (_document);// 3
     
     if (count == 0) {
         
@@ -62,18 +68,17 @@
         
     }
     
-    return document;
+    return _document;
 }
 //returns number of pages in pdf
--(int)getNumberOfPages{
+-(size_t)getNumberOfPages{
+    if(!document){
+        document  = [self MyGetPDFDocumentRef:filePath];
+    }
   
-    document  = [self MyGetPDFDocumentRef:filePath];
-   
-    int pageCount = CGPDFDocumentGetNumberOfPages(document);
-    CGPDFDocumentRelease (document);// 4
-
-    return pageCount;
+    return count;
 }
+
 
 
 
@@ -100,49 +105,17 @@
     CGPDFDocumentRelease (document);// 4
 }
 
-//get all pages
--(NSArray *) getAllPagesForContext:(CGContextRef )context{
-    CGPDFPageRef page;
-    CGFloat scaleRatio;
-    document  = [self MyGetPDFDocumentRef:filePath];
-    int count = CGPDFDocumentGetNumberOfPages (document);// 3
-    NSMutableArray * a = [[NSMutableArray alloc]initWithCapacity:0];
-    for (int i = 1; i<count; i++){
-        //CGContextRef context = UIGraphicsGetCurrentContext();
-        page = CGPDFDocumentGetPage (document, i);// 2
-        CGRect pageRect = CGPDFPageGetBoxRect(page, kCGPDFBleedBox);
-        // CGRect thumbnailRect= CGRectMake(0, 0, 600, 600);
-        //pageRect = thumbnailRect;
-        UIGraphicsBeginImageContextWithOptions(pageRect.size, NO,0.0);
-
-        if(pageRect.size.width/pageRect.size.height < 1.0) {
-            scaleRatio = _box.size.height * fillFactor/pageRect.size.height;
-        }
-        else {
-            scaleRatio = _box.size.width * fillFactor /pageRect.size.width;
-        }
-           
-        CGAffineTransform pdfTransform = CGAffineTransformScale(CGAffineTransformIdentity, scaleRatio, scaleRatio);
-        CGContextConcatCTM(context, pdfTransform);
-        CGContextDrawPDFPage (context, page);// 3
-        UIImage * im = UIGraphicsGetImageFromCurrentImageContext();
-        [a addObject:im];
-        UIGraphicsEndImageContext();
-        [self saveImage:im withFileName:[NSString stringWithFormat:@"image%d",i] ofType:@"jpg" inDirectory:DOCUMENT_FOLDER];
-
-    }
-        CGPDFDocumentRelease (document);// 4s
-    return [a copy];
-}
 
 -(UIImage *)imageForPage:(int)pageNumber {
-    document  = [self MyGetPDFDocumentRef:filePath];
     
-    CGPDFPageRef page = CGPDFDocumentGetPage (document, pageNumber);
+    CGPDFDocumentRef _document  = [self MyGetPDFDocumentRef:filePath];
+    CGPDFPageRef page = CGPDFDocumentGetPage (_document, pageNumber);
+    
+    
     CGRect pageRect = CGPDFPageGetBoxRect(page, kCGPDFBleedBox);
     CGSize pageSize = pageRect.size;
-    //CGSize thumbSize = CGSizeMake(600,600);
-    //pageSize = thumbSize;
+    CGSize thumbSize = CGSizeMake(ThumbSize,ThumbSize);
+    pageSize = thumbSize;
     
     UIGraphicsBeginImageContextWithOptions(pageSize, NO, 0.0);
     
@@ -161,10 +134,39 @@
     
     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+    CGPDFDocumentRelease (_document);
     return resultingImage;
 }
 
+-(void)createThumbnailsWithName:(NSString *)name{
+    __block int pageCount = [self getNumberOfPages];
+    int totalCount = [self getNumberOfPages];
+    __block float progress = 0.0;
+    for(int i =1; i<totalCount;i++){
+    PDFGeneratorOperation * generator = [[PDFGeneratorOperation alloc]initWithPageNumber:i andPDFParser:self andName:name
+                                             
+                                                                          andCompletionBlock:^(UIImage * image)
+                                             {
+                                             }];
+        generator.completionBlock =^{
+            //decrease count of
+            
+            pageCount--;
+            progress = 100 * (totalCount - pageCount)/totalCount*1.0f;
+            NSLog(@"%.1f%%",progress);
+            
+        };
+        [blockOperation addDependency:generator];
+        [_queue addOperation:generator];
+    }
+    [_queue addOperation: blockOperation];
+    
+    [blockOperation setCompletionBlock:^(){
+        NSLog(@"Completed ");
+        
+    }];
+    
+}
 
 
 -(void) saveImage:(UIImage *)image withFileName:(NSString *)imageName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath {
