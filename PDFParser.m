@@ -105,6 +105,22 @@
     CGPDFDocumentRelease (document);// 4
 }
 
+CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
+    CGFloat originalAspectRatio = size.width / size.height;
+    CGFloat maxAspectRatio = maxSize.width / maxSize.height;
+    CGSize newSize = maxSize;
+    // The largest dimension will be the `maxSize`, and then we need to scale
+    // the other dimension down relative to it, while maintaining the aspect
+    // ratio.
+    if (originalAspectRatio > maxAspectRatio) {
+        newSize.height = maxSize.width / originalAspectRatio;
+    } else {
+        newSize.width = maxSize.height * originalAspectRatio;
+    }
+    
+    return newSize;
+}
+
 
 -(UIImage *)imageForPage:(int)pageNumber {
     
@@ -112,10 +128,11 @@
     CGPDFPageRef page = CGPDFDocumentGetPage (_document, pageNumber);
     
     
-    CGRect pageRect = CGPDFPageGetBoxRect(page, kCGPDFBleedBox);
+    CGRect pageRect = CGPDFPageGetBoxRect(page, kCGPDFArtBox);
     CGSize pageSize = pageRect.size;
     CGSize thumbSize = CGSizeMake(ThumbSize,ThumbSize);
-    pageSize = thumbSize;
+    pageSize = MEDSizeScaleAspectFit(pageSize, thumbSize);
+    
     
     UIGraphicsBeginImageContextWithOptions(pageSize, NO, 0.0);
     
@@ -126,7 +143,7 @@
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextSaveGState(context);
     
-    CGAffineTransform pdfTransform = CGPDFPageGetDrawingTransform(page, kCGPDFCropBox, CGRectMake(0, 0, pageSize.width, pageSize.height), 0, true);
+    CGAffineTransform pdfTransform = CGPDFPageGetDrawingTransform(page, kCGPDFArtBox, CGRectMake(0, 0, pageSize.width, pageSize.height), 0, true);
     CGContextConcatCTM(context, pdfTransform);
     
     CGContextDrawPDFPage(context, page);

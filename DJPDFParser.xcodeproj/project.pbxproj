@@ -33,6 +33,8 @@
 		821652B81777AA3900EDFF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 821652B61777AA3900EDFF12 /* InfoPlist.strings */; };
 		821652BB1777AA3900EDFF12 /* DJPDFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */; };
 		821652C91777ABE800EDFF12 /* PDFParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652C81777ABE800EDFF12 /* PDFParser.m */; };
+		82A60CC51862E85800A61314 /* C.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 82A60CC41862E85800A61314 /* C.pdf */; };
+		82A60CC71862EB8300A61314 /* LectureCapturePDF.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 82A60CC61862EB8300A61314 /* LectureCapturePDF.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		821652BA1777AA3900EDFF12 /* DJPDFParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJPDFParserTests.m; sourceTree = "<group>"; };
 		821652C71777ABE800EDFF12 /* PDFParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFParser.h; sourceTree = "<group>"; };
 		821652C81777ABE800EDFF12 /* PDFParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFParser.m; sourceTree = "<group>"; };
+		82A60CC41862E85800A61314 /* C.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = C.pdf; sourceTree = "<group>"; };
+		82A60CC61862EB8300A61314 /* LectureCapturePDF.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LectureCapturePDF.pdf; sourceTree = "<group>"; };
 		82D4DCD91788DA54004780C3 /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				4F1D3E71178CB29100F0616E /* ios5.pdf */,
+				82A60CC61862EB8300A61314 /* LectureCapturePDF.pdf */,
+				82A60CC41862E85800A61314 /* C.pdf */,
 				4FBE0C08177B524600F283B5 /* ios51.pdf */,
 				821652911777AA3800EDFF12 /* DJPDFParser-Info.plist */,
 				821652921777AA3800EDFF12 /* InfoPlist.strings */,
@@ -268,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A60CC51862E85800A61314 /* C.pdf in Resources */,
 				821652941777AA3800EDFF12 /* InfoPlist.strings in Resources */,
 				8216529C1777AA3800EDFF12 /* Default.png in Resources */,
 				8216529E1777AA3800EDFF12 /* Default@2x.png in Resources */,
@@ -275,6 +282,7 @@
 				821652A31777AA3800EDFF12 /* MainStoryboard.storyboard in Resources */,
 				4FBE0C09177B524600F283B5 /* ios51.pdf in Resources */,
 				4F1D3E72178CB29100F0616E /* ios5.pdf in Resources */,
+				82A60CC71862EB8300A61314 /* LectureCapturePDF.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
