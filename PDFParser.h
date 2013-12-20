@@ -7,19 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+@class DJPDFPage;
 
 @interface PDFParser : NSObject
-typedef void (^THumbnailsGeneratedBlock)();
+typedef void (^ThumbnailsGeneratedBlock)();
 
 -(id)initWithFilePath:(NSString*)filename;
 -(size_t)getNumberOfPages;
-//Get PDF
--(CGPDFDocumentRef) MyGetPDFDocumentRef: (NSString *) fileName;
--(void)displayPDFPage:(CGContextRef)context andPageNumber:(size_t) pageNumber;
+
 -(void)createThumbnailsWithName:(NSString *)name;
-
--(UIImage *)imageForPage:(int)pageNumber;
+-(UIImage *)imageForPage:(int)pageNumber sized:(CGSize)size;
 -(void) saveImage:(UIImage *)image withFileName:(NSString *)imageName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath;
+-(void)extractPages;
 
-@property CGRect  box;
+
+//for observing KVO
+@property (readonly) float progress;
+@property(nonatomic) BOOL completed;
+
+
+@property (nonatomic,strong) DJPDFPage * processedPage;
+
+
 @end

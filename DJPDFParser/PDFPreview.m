@@ -48,7 +48,7 @@ int pageNr;
     if (self) {
         // Initialization code
         pdf = [[PDFParser alloc]initWithFilePath:_filePath];
-        pdf.box = self.bounds;
+     //   pdf.box = self.bounds;
         pageNr = 1;
         self.userInteractionEnabled = YES;
         swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(viewSwiped:)];
@@ -112,7 +112,7 @@ int pageNr;
     for(int i =1; i<pdf.getNumberOfPages;i++){
         PDFGeneratorOperation * generator = [[PDFGeneratorOperation alloc]initWithPageNumber:i andPDFParser:pdf andName:@"afef20"
                                              
-                                                                          andCompletionBlock:^(UIImage * image)
+                                                                          andCompletionBlock:^(UIImage * image,int i)
                                              {
                                              }];
         generator.completionBlock =^{
@@ -225,7 +225,7 @@ int pageNr;
     CGPoint translation = [panGesture translationInView:self];
     CGContextTranslateCTM(context, -translation.x, translation.y);
     if(!self.getAllPages){
-        [pdf displayPDFPage:context andPageNumber:pageNr];
+      ///  [pdf displayPDFPage:context andPageNumber:pageNr];
     }else{
 //        if(screenshots.count==0){
 //            [_queue addOperationWithBlock:^(){

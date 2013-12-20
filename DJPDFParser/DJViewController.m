@@ -41,7 +41,7 @@
         path = [appDelegate.url absoluteString];
     }
     else{
-        path = [[NSBundle mainBundle]pathForResource:@"LectureCapturePDF" ofType:@"pdf"];
+        path = [[NSBundle mainBundle]pathForResource:@"ios5" ofType:@"pdf"];
     }
     parser = [[PDFParser alloc]initWithFilePath:path];
     _itemsList = [[NSMutableArray alloc]initWithCapacity:0];

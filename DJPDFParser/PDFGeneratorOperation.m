@@ -34,9 +34,9 @@
     @autoreleasepool {
         if (self.isCancelled)
             return;
-            UIImage * im =   [_pdf imageForPage:_pageCounter];
+            UIImage * im =   [_pdf imageForPage:_pageCounter sized:CGSizeMake(800, 600)];
         if(im){
-            _djcompletionBlock(im);
+            _djcompletionBlock(im,_pageCounter);
         }
         if (self.isCancelled)
             return;

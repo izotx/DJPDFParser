@@ -35,6 +35,7 @@
 		821652C91777ABE800EDFF12 /* PDFParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 821652C81777ABE800EDFF12 /* PDFParser.m */; };
 		82A60CC51862E85800A61314 /* C.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 82A60CC41862E85800A61314 /* C.pdf */; };
 		82A60CC71862EB8300A61314 /* LectureCapturePDF.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 82A60CC61862EB8300A61314 /* LectureCapturePDF.pdf */; };
+		82A60CCA1863CD5300A61314 /* DJPDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A60CC91863CD5300A61314 /* DJPDFPage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		821652C81777ABE800EDFF12 /* PDFParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFParser.m; sourceTree = "<group>"; };
 		82A60CC41862E85800A61314 /* C.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = C.pdf; sourceTree = "<group>"; };
 		82A60CC61862EB8300A61314 /* LectureCapturePDF.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LectureCapturePDF.pdf; sourceTree = "<group>"; };
+		82A60CC81863CD5300A61314 /* DJPDFPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJPDFPage.h; sourceTree = "<group>"; };
+		82A60CC91863CD5300A61314 /* DJPDFPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJPDFPage.m; sourceTree = "<group>"; };
 		82D4DCD91788DA54004780C3 /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +119,8 @@
 			children = (
 				821652C71777ABE800EDFF12 /* PDFParser.h */,
 				821652C81777ABE800EDFF12 /* PDFParser.m */,
+				82A60CC81863CD5300A61314 /* DJPDFPage.h */,
+				82A60CC91863CD5300A61314 /* DJPDFPage.m */,
 				82D4DCD91788DA54004780C3 /* File */,
 				4F8F243C177A74CC00185CF7 /* Macro.h */,
 				4F8F243D177A74CC00185CF7 /* Macro.m */,
@@ -320,6 +325,7 @@
 				821652961777AA3800EDFF12 /* main.m in Sources */,
 				8216529A1777AA3800EDFF12 /* DJAppDelegate.m in Sources */,
 				821652A61777AA3800EDFF12 /* DJViewController.m in Sources */,
+				82A60CCA1863CD5300A61314 /* DJPDFPage.m in Sources */,
 				821652C91777ABE800EDFF12 /* PDFParser.m in Sources */,
 				4F8F243A177A730800185CF7 /* PDFPreview.m in Sources */,
 				4F8F243E177A74CC00185CF7 /* Macro.m in Sources */,

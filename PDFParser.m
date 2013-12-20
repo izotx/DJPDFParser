@@ -7,23 +7,35 @@
 //
 
 #import "PDFParser.h"
-#import "Macro.h"
+//#import "Macro.h"
 #import "PDFGeneratorOperation.h"
+#import  "DJPDFPage.h"
 
 
-#define fillFactor 0.9
-#define ThumbSize 800
 @interface PDFParser(){
     CGPDFDocumentRef document;
     NSString * filePath;
     size_t count;
     NSOperation * blockOperation;
 }
-
 @property(nonatomic, strong) NSOperationQueue *queue;
 @end
 
 @implementation PDFParser
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if([keyPath isEqualToString:@"operationCount"]){
+        if([[change objectForKey:@"new"] isEqual:@0]){
+            self.completed = YES;
+            NSLog(@"Completed");
+        }
+    }
+}
+
+-(void)clean{
+
+    
+}
 
 
 -(id)initWithFilePath:(NSString*)filename{
@@ -33,77 +45,50 @@
         filePath = filename;
         blockOperation = [[NSOperation alloc]init];
         _queue = [[NSOperationQueue alloc]init];
-        _queue.maxConcurrentOperationCount = 4;
-        
+        [self.queue addObserver:self forKeyPath:@"operationCount" options:NSKeyValueObservingOptionNew context:nil];
+       
     }
     return self;
 }
 
 
 //gets pdf document ref
--(CGPDFDocumentRef) MyGetPDFDocumentRef: (NSString *) fileName;{
-    CFStringRef path;
-    CFURLRef url;
-
+-(CGPDFDocumentRef) CreatePDFDocumentRef: (NSString *) fileName;{
+   
     const char *cfileName = [fileName cStringUsingEncoding:NSUTF8StringEncoding];
-    path = CFStringCreateWithCString (NULL, cfileName,
+    CFStringRef path = CFStringCreateWithCString (NULL, cfileName,
                                       
                                       kCFStringEncodingUTF8);
     
-    url = CFURLCreateWithFileSystemPath (NULL, path, // 1
+    //free((char*)cfileName);
+    CFURLRef url = CFURLCreateWithFileSystemPath (NULL, path, // 1
                                          
                                          kCFURLPOSIXPathStyle, 0);
     
     CFRelease (path);
+    
     CGPDFDocumentRef  _document = CGPDFDocumentCreateWithURL (url);// 2
     CFRelease(url);
+
     
     count = CGPDFDocumentGetNumberOfPages (_document);// 3
     
     if (count == 0) {
-        
-        printf("`%s' needs at least one page!", cfileName);
-        
+        NSLog(@"PDF needs at least one page");
         return NULL;
-        
     }
+    
     
     return _document;
 }
 //returns number of pages in pdf
 -(size_t)getNumberOfPages{
     if(!document){
-        document  = [self MyGetPDFDocumentRef:filePath];
+        document  = [self CreatePDFDocumentRef:filePath];
     }
-  
     return count;
 }
 
-
-
-
-//Displays page in context
--(void)displayPDFPage:(CGContextRef)context andPageNumber:(size_t) pageNumber{
-    
-    CGPDFPageRef page;
-    CGFloat scaleRatio;
-    document  = [self MyGetPDFDocumentRef:filePath];
-    page = CGPDFDocumentGetPage (document, pageNumber);// 2
-    CGRect pageRect = CGPDFPageGetBoxRect(page, kCGPDFBleedBox);
-     
-    if(pageRect.size.width/pageRect.size.height < 1.0) {
-        scaleRatio = _box.size.height * fillFactor/pageRect.size.height;
-    }
-    else {
-        scaleRatio = _box.size.width * fillFactor /pageRect.size.width;
-    }
-   
-    CGAffineTransform pdfTransform = CGAffineTransformScale(CGAffineTransformIdentity, scaleRatio, scaleRatio);
-    
-    CGContextConcatCTM(context, pdfTransform);
-    CGContextDrawPDFPage (context, page);// 3
-    CGPDFDocumentRelease (document);// 4
-}
 
 CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
     CGFloat originalAspectRatio = size.width / size.height;
@@ -122,18 +107,17 @@ CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
 }
 
 
--(UIImage *)imageForPage:(int)pageNumber {
+-(UIImage *)imageForPage:(int)pageNumber sized:(CGSize)size{
     
-    CGPDFDocumentRef _document  = [self MyGetPDFDocumentRef:filePath];
+    CGPDFDocumentRef _document  = [self CreatePDFDocumentRef:filePath];
     CGPDFPageRef page = CGPDFDocumentGetPage (_document, pageNumber);
     
     
     CGRect pageRect = CGPDFPageGetBoxRect(page, kCGPDFArtBox);
     CGSize pageSize = pageRect.size;
-    CGSize thumbSize = CGSizeMake(ThumbSize,ThumbSize);
+    CGSize thumbSize = size;
     pageSize = MEDSizeScaleAspectFit(pageSize, thumbSize);
-    
-    
+        
     UIGraphicsBeginImageContextWithOptions(pageSize, NO, 0.0);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -155,33 +139,66 @@ CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
     return resultingImage;
 }
 
--(void)createThumbnailsWithName:(NSString *)name{
-    __block int pageCount = [self getNumberOfPages];
+
+
+-(void)extractPages{
     int totalCount = [self getNumberOfPages];
+    // __block float progress = 0.0;
+    for(int i =1; i<totalCount;i++){
+        NSBlockOperation * bl = [[NSBlockOperation alloc]init];
+        __weak NSBlockOperation * weakOperation = bl;
+        __block UIImage *im;
+        [bl addExecutionBlock:^{
+            if(!weakOperation.isCancelled)
+            {
+                im = [self imageForPage:i sized:CGSizeMake(800, 600)];
+                //load image to core data
+            }
+        }];
+        [bl setCompletionBlock:^{
+            DJPDFPage * pdfPage = [[DJPDFPage alloc]init];
+            pdfPage.img = im;
+            pdfPage.index =i;
+            self.processedPage =pdfPage;
+        }];
+    }
+}
+
+
+
+
+-(void)createThumbnailsWithName:(NSString *)name{
+    int totalCount = [self getNumberOfPages];
+   __block int pageCount = totalCount;
     __block float progress = 0.0;
     for(int i =1; i<totalCount;i++){
     PDFGeneratorOperation * generator = [[PDFGeneratorOperation alloc]initWithPageNumber:i andPDFParser:self andName:name
                                              
-                                                                          andCompletionBlock:^(UIImage * image)
+                                                                            `andCompletionBlock:^(UIImage * image, int l)
                                              {
+                                                 pageCount--;
+                                                 progress = 100 * (totalCount - pageCount)/totalCount*1.0f;
+                                                 NSLog(@"%.1f%%",progress);
+
+                                               
+                                                 
                                              }];
-        generator.completionBlock =^{
-            //decrease count of
-            
-            pageCount--;
-            progress = 100 * (totalCount - pageCount)/totalCount*1.0f;
-            NSLog(@"%.1f%%",progress);
-            
-        };
-        [blockOperation addDependency:generator];
+//        generator.completionBlock =^{
+//            //decrease count of
+//            
+          //            //call it on main thread?
+//            
+//            
+//        };
+       // [blockOperation addDependency:generator];
         [_queue addOperation:generator];
     }
     [_queue addOperation: blockOperation];
     
-    [blockOperation setCompletionBlock:^(){
-        NSLog(@"Completed ");
-        
-    }];
+//    [blockOperation setCompletionBlock:^(){
+//    
+//        
+//    }];
     
 }
 

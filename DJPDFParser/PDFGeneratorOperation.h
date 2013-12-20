@@ -10,7 +10,7 @@
 @class PDFParser;
 
 @interface PDFGeneratorOperation : NSOperation
-typedef void (^DJCompletionBlock)(UIImage *);
+typedef void (^DJCompletionBlock)(UIImage *image, int page);
 -(id)initWithPageNumber:(int)page andPDFParser:(PDFParser *)parser andName:(NSString *)folder andCompletionBlock:(DJCompletionBlock)block;
 
 @property int pageCounter;
