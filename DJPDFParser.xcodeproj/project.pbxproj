@@ -11,6 +11,7 @@
 		4F1ACB5D178DC1D800F171C1 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1ACB5B178DC1D800F171C1 /* DataSource.m */; };
 		4F1D3E70178C613000F0616E /* PDFGeneratorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D3E6F178C613000F0616E /* PDFGeneratorOperation.m */; };
 		4F1D3E72178CB29100F0616E /* ios5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D3E71178CB29100F0616E /* ios5.pdf */; };
+		4F8514131864A0E000D308F6 /* AndroidEssentials.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4F8514121864A0E000D308F6 /* AndroidEssentials.pdf */; };
 		4F8F243A177A730800185CF7 /* PDFPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F2439177A730800185CF7 /* PDFPreview.m */; };
 		4F8F243B177A730800185CF7 /* PDFPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F2439177A730800185CF7 /* PDFPreview.m */; };
 		4F8F243E177A74CC00185CF7 /* Macro.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F243D177A74CC00185CF7 /* Macro.m */; };
@@ -54,6 +55,7 @@
 		4F1D3E6E178C612F00F0616E /* PDFGeneratorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFGeneratorOperation.h; sourceTree = "<group>"; };
 		4F1D3E6F178C613000F0616E /* PDFGeneratorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFGeneratorOperation.m; sourceTree = "<group>"; };
 		4F1D3E71178CB29100F0616E /* ios5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ios5.pdf; sourceTree = "<group>"; };
+		4F8514121864A0E000D308F6 /* AndroidEssentials.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AndroidEssentials.pdf; sourceTree = "<group>"; };
 		4F8F2438177A730800185CF7 /* PDFPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPreview.h; sourceTree = "<group>"; };
 		4F8F2439177A730800185CF7 /* PDFPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPreview.m; sourceTree = "<group>"; };
 		4F8F243C177A74CC00185CF7 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		821652901777AA3800EDFF12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4F8514121864A0E000D308F6 /* AndroidEssentials.pdf */,
 				4F1D3E71178CB29100F0616E /* ios5.pdf */,
 				82A60CC61862EB8300A61314 /* LectureCapturePDF.pdf */,
 				82A60CC41862E85800A61314 /* C.pdf */,
@@ -282,6 +285,7 @@
 				82A60CC51862E85800A61314 /* C.pdf in Resources */,
 				821652941777AA3800EDFF12 /* InfoPlist.strings in Resources */,
 				8216529C1777AA3800EDFF12 /* Default.png in Resources */,
+				4F8514131864A0E000D308F6 /* AndroidEssentials.pdf in Resources */,
 				8216529E1777AA3800EDFF12 /* Default@2x.png in Resources */,
 				821652A01777AA3800EDFF12 /* Default-568h@2x.png in Resources */,
 				821652A31777AA3800EDFF12 /* MainStoryboard.storyboard in Resources */,

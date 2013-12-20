@@ -7,7 +7,6 @@
 //
 
 #import "PDFParser.h"
-//#import "Macro.h"
 #import "PDFGeneratorOperation.h"
 #import  "DJPDFPage.h"
 
@@ -45,6 +44,7 @@
         filePath = filename;
         blockOperation = [[NSOperation alloc]init];
         _queue = [[NSOperationQueue alloc]init];
+        [_queue setMaxConcurrentOperationCount:3];
         [self.queue addObserver:self forKeyPath:@"operationCount" options:NSKeyValueObservingOptionNew context:nil];
        
     }
@@ -140,10 +140,79 @@ CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
 }
 
 
+-(void)extractPagesUsingGCDGroup{
+    
+    
+    dispatch_queue_t queue =
+    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_t group = dispatch_group_create();
+       int totalCount = [self getNumberOfPages];
+       for(int i =1; i<totalCount;i++){
+           dispatch_group_async(group, queue, ^{
+               UIImage *  im = [self imageForPage:i sized:CGSizeMake(800, 600)];
+               DJPDFPage * pdfPage = [[DJPDFPage alloc]init];
+               pdfPage.img = im;
+               pdfPage.index =i;
+               self.processedPage =pdfPage;});
+       }
+    
+    dispatch_group_notify(group,
+                          dispatch_get_main_queue(), ^{NSLog(@"done");});
+    
+
+}
+
+
+-(void)extractPagesUsingGCD{
+
+    NSLog(@"Start");
+    int totalCount = [self getNumberOfPages];
+/*
+    dispatch_queue_t myConcurrentDispatchQueue = dispatch_queue_create(
+                                                                       "com.example.gcd.MyConcurrentDispatchQueue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(myConcurrentDispatchQueue, ^{
+        for(int i =1; i<totalCount;i++){
+            UIImage *  im = [self imageForPage:i sized:CGSizeMake(800, 600)];
+            DJPDFPage * pdfPage = [[DJPDFPage alloc]init];
+            pdfPage.img = im;
+            pdfPage.index =i;
+            self.processedPage =pdfPage;
+        }
+    });
+    
+*/
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        /*
+         * some tasks here to be executed concurrently
+         */
+        for(int i =1; i<totalCount;i++){
+            UIImage *  im = [self imageForPage:i sized:CGSizeMake(800, 600)];
+            DJPDFPage * pdfPage = [[DJPDFPage alloc]init];
+            pdfPage.img = im;
+            pdfPage.index =i;
+            self.processedPage =pdfPage;
+        }
+        
+        /*
+         * Then, execute a Block on the main dispatch queue
+         */
+        dispatch_async(dispatch_get_main_queue(), ^{
+            /*
+             * Here, some tasks that can work only on the main thread.
+             */
+            NSLog(@"hey! ");
+        });
+    });
+    
+}
+
 
 -(void)extractPages{
+    NSLog(@"Start");
     int totalCount = [self getNumberOfPages];
-    // __block float progress = 0.0;
     for(int i =1; i<totalCount;i++){
         NSBlockOperation * bl = [[NSBlockOperation alloc]init];
         __weak NSBlockOperation * weakOperation = bl;
@@ -160,7 +229,9 @@ CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
             pdfPage.img = im;
             pdfPage.index =i;
             self.processedPage =pdfPage;
+            
         }];
+        [_queue addOperation:bl];
     }
 }
 
@@ -174,7 +245,7 @@ CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
     for(int i =1; i<totalCount;i++){
     PDFGeneratorOperation * generator = [[PDFGeneratorOperation alloc]initWithPageNumber:i andPDFParser:self andName:name
                                              
-                                                                            `andCompletionBlock:^(UIImage * image, int l)
+                                                                            andCompletionBlock:^(UIImage * image, int l)
                                              {
                                                  pageCount--;
                                                  progress = 100 * (totalCount - pageCount)/totalCount*1.0f;
@@ -183,23 +254,9 @@ CGSize MEDSizeScaleAspectFit(CGSize size, CGSize maxSize) {
                                                
                                                  
                                              }];
-//        generator.completionBlock =^{
-//            //decrease count of
-//            
-          //            //call it on main thread?
-//            
-//            
-//        };
-       // [blockOperation addDependency:generator];
         [_queue addOperation:generator];
     }
-    [_queue addOperation: blockOperation];
-    
-//    [blockOperation setCompletionBlock:^(){
-//    
-//        
-//    }];
-    
+
 }
 
 

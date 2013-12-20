@@ -19,6 +19,8 @@ typedef void (^ThumbnailsGeneratedBlock)();
 -(UIImage *)imageForPage:(int)pageNumber sized:(CGSize)size;
 -(void) saveImage:(UIImage *)image withFileName:(NSString *)imageName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath;
 -(void)extractPages;
+-(void)extractPagesUsingGCD;
+-(void)extractPagesUsingGCDGroup;
 
 
 //for observing KVO

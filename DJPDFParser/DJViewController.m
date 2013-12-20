@@ -27,8 +27,17 @@
 @end
 
 @implementation DJViewController
+- (IBAction)gcdGroup:(id)sender {
+     [parser extractPagesUsingGCDGroup];
+}
 - (IBAction)parse:(id)sender {
-    [parser createThumbnailsWithName:@"PDFName"];
+    //[parser createThumbnailsWithName:@"PDFName"];
+    [parser extractPages];
+
+}
+- (IBAction)parseGCD:(id)sender {
+    [parser extractPagesUsingGCD];
+    
 }
 
 - (void)viewDidLoad
@@ -50,7 +59,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self addPDF];
+   // [self addPDF];
     [self.view addSubview:self.parseButton];
 }
 
